@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="444" Width="730">
+    <Grid Height="424" VerticalAlignment="Top">
+        <Button Content="Отправить" Margin="320,291,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="98" Click="SendButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="160,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Имя пользователя"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="475,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ru-ru" Text="Пароль"/></TextBlock>
+        <TextBox x:Name="LoginEdit" HorizontalAlignment="Left" Margin="125,199,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Height="18"/>
+        <PasswordBox x:Name="PasswordEdit" HorizontalAlignment="Left" Margin="436,199,0,0" VerticalAlignment="Top" Width="168" Height="18"/>
+
 
     </Grid>
 </Window>
