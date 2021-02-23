@@ -15,14 +15,10 @@ using System.Windows.Shapes;
 
 namespace MailSender
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
+
+        private void Exit_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

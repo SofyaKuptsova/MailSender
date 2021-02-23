@@ -28,7 +28,6 @@ namespace TestWPF
             message.Subject = SubjectText.Text;
             message.Body = BodyText.Text;
 
-            //var port = Convert.ToInt32(PortTb.Text);
             var client = new SmtpClient(ServerNameTb.Text, Convert.ToInt32(PortTb.Text));
             client.EnableSsl = true;
 
@@ -36,7 +35,6 @@ namespace TestWPF
             {
                 UserName = LoginEdit.Text,
                 SecurePassword = PasswordEdit.SecurePassword
-                //Password = "Password!"
             };
 
             try
