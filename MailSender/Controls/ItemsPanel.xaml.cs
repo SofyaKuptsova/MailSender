@@ -9,7 +9,7 @@ namespace MailSender.Controls
                 nameof(Title),
                 typeof(string),
                 typeof(ItemsPanel),
-                new PropertyMetadata(default(string), OnTitleChanged));
+                new PropertyMetadata(defaultValue:"(Название)", OnTitleChanged));
 
         private static void OnTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
