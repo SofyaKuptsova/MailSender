@@ -10,15 +10,16 @@ namespace TestWPF.ViewModels
 
         public string Title 
         { 
-            get => _Title; 
-            set
-            {
-                //if (_Title == value) return;
-                if (Equals(_Title, value)) return;
+            get => _Title;
+            //set
+            //{
+            //    //if (_Title == value) return;
+            //    if (Equals(_Title, value)) return;
 
-                _Title = value;
-                OnPropertyChanged();
-            }
+            //    _Title = value;
+            //    OnPropertyChanged();
+            //}
+            set => Set(ref _Title, value);
         }
     }
 }
