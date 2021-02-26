@@ -4,7 +4,7 @@ using MailSender.lib.ViewModels.Base;
 
 namespace TestWPF.ViewModels
 {
-    public class MainWindowViewModel : ViewModel
+    class MainWindowViewModel : ViewModel
     {
         private string _Title = "Test111";
 
@@ -13,8 +13,11 @@ namespace TestWPF.ViewModels
             get => _Title; 
             set
             {
+                //if (_Title == value) return;
+                if (Equals(_Title, value)) return;
+
                 _Title = value;
-                OnPropertyChanged(nameof(Title));
+                OnPropertyChanged();
             }
         }
     }
