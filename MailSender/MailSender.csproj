@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Media\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
   <ItemGroup>
