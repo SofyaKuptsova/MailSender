@@ -53,12 +53,12 @@
                             </Button>
                             <Button ToolTip="Редактировать">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="Media/add.png" Height="16" Margin="0,0,5,0"/>
+                                    <Image Source="Media/edit.png" Height="16" Margin="0,0,5,0"/>
                                 </StackPanel>
                             </Button>
                             <Button ToolTip="Удалить">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="Media/add.png" Height="16" Margin="0,0,5,0"/>
+                                    <Image Source="Media/remove.png" Height="16" Margin="0,0,5,0"/>
                                 </StackPanel>
                             </Button>
                         </ToolBar>
