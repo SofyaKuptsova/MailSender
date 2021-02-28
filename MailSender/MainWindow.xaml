@@ -99,7 +99,9 @@
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
                         <ToolBar Band="2">
-                            <contr:ItemsPanel/>
+                            <contr:ItemsPanel Title="Сервера" 
+                                              ItemTemplate="{Binding Servers}"
+                                              />
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей" Margin="3">
