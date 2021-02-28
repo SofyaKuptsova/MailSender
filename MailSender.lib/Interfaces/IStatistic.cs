@@ -4,14 +4,16 @@ namespace MailSender.lib.Interfaces
 {
     public interface IStatistic
     {
-        int SenderMailCount { get; }
-
-        void MailSender();
+        int SendedMailsCount { get; }
+        event EventHandler SendedMailsCountChanged;
 
         int SendersCount { get; }
 
         int RecipientsCount { get; }
 
         TimeSpan UpTime { get; }
+
+        void MailSended();
+
     }
 }

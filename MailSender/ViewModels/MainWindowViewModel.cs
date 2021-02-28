@@ -1,5 +1,6 @@
 ﻿using MailSender.Infrastructure;
 using MailSender.lib.Commands;
+using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
 using MailSender.Models;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ namespace MailSender.ViewModels
     internal class MainWindowViewModel : ViewModel
     {
         private readonly ServersRepository _Servers;
+        private readonly IMailService _MailService;
 
         private string _Title = "Рассыльщик";
 
@@ -26,20 +28,34 @@ namespace MailSender.ViewModels
         private ICommand _LoadServersCommand;
 
         public ICommand LoadServersCommand => _LoadServersCommand
-            ??= new LambdaCommand(OnLoadServerCommandExecute, CanLoadServerCommandExecute);
+            ??= new LambdaCommand(OnLoadServerCommandExecuted, CanLoadServerCommandExecute);
 
         private bool CanLoadServerCommandExecute(object p) => Servers.Count == 0;
 
-        private void OnLoadServerCommandExecute(object p)
+        private void OnLoadServerCommandExecuted(object p)
         {
             LoadServers();
         }
 
+        private ICommand _SendEmailCommand;
+
+        public ICommand SendEmailCommand => _SendEmailCommand
+            ??= new LambdaCommand(OnSendEmailCommandExecuted, CanSendEmailCommandExecute);
+
+        private bool CanSendEmailCommandExecute(object p) => Servers.Count == 0;
+
+        private void OnSendEmailCommandExecuted(object p)
+        {
+            _MailService.SendEmail("Иванов", "Петров", "Тема", "Тело письма");
+        }
+
+
         #endregion
 
-        public MainWindowViewModel(ServersRepository Servers)
+        public MainWindowViewModel(ServersRepository Servers, IMailService MailService)
         {
             _Servers = Servers;
+            _MailService = MailService;
         }
 
         private void LoadServers()

@@ -7,11 +7,15 @@ namespace MailSender.Infrastructure.Services
 {
     internal class InMemoryStatisticService : IStatistic
     {
-        private int _SenderMailCount;
-        public int SenderMailCount => _SenderMailCount;
+        private int _SendedMailsCount;
+        public int SendedMailsCount => _SendedMailsCount;
+        public event EventHandler SendedMailsCountChanged;
 
-        public void MailSender() => _SenderMailCount++;
-
+        public void MailSended()
+        { 
+            _SendedMailsCount++;
+            SendedMailsCountChanged?.Invoke(this, EventArgs.Empty);
+        }
         public int SendersCount => TestData.Senders.Count;
 
         public int RecipientsCount => TestData.Recipients.Count;

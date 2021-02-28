@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using MailSender.lib.Service;
 
 namespace MailSender
 {
@@ -27,9 +28,10 @@ namespace MailSender
         {
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<StatisticViewModel>();
-
+           
             services.AddSingleton<ServersRepository>();
             services.AddSingleton<IStatistic, InMemoryStatisticService>();
+            services.AddSingleton<IMailService, DebugMailService>();
         }
     }
 }

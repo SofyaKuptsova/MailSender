@@ -9,7 +9,7 @@ namespace MailSender.ViewModels
     {
         private readonly IStatistic _Statistic;
 
-        public int MailSenderCount => _Statistic.SenderMailCount;
+        public int MailsSendedCount => _Statistic.SendedMailsCount;
         public int SendersCount => _Statistic.SendersCount;
         public int RecipientsCount => _Statistic.RecipientsCount;
         public TimeSpan UpTime => _Statistic.UpTime;
@@ -21,6 +21,8 @@ namespace MailSender.ViewModels
             var timer = new Timer(100);
             timer.Elapsed += (_, _) => OnPropertyChanged(nameof(UpTime));
             timer.Start();
+
+            Statistic.SendedMailsCountChanged += (_, _) => OnPropertyChanged(nameof(MailsSendedCount));
         }
     }
 }
