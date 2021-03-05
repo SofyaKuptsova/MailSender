@@ -23,6 +23,12 @@ namespace MailSender.ViewModels
 
         public ObservableCollection<Server> Servers { get; } = new ();
 
+        public ObservableCollection<Recipient> Recipients { get; } = new();
+
+        public ObservableCollection<Sender> Senders { get; } = new();
+
+        public ObservableCollection<Message> Messages { get; } = new();
+
         #region Команды
 
         private ICommand _LoadServersCommand;

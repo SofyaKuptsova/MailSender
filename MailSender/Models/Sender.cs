@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MailSender.Models.Base;
 
 namespace MailSender.Models
 {
-    public class Sender
+    public class Sender : Entity
     {
         public string Name { get; set; }
         public string Address { get; set; }
