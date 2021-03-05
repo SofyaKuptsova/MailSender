@@ -1,9 +1,10 @@
 ﻿using MailSender.Models.Base;
 using System;
+using System.ComponentModel;
 
 namespace MailSender.Models
 {
-    public class Recipient : Entity
+    public class Recipient : Entity, IDataErrorInfo
     {
         private string _Name;
 
@@ -19,5 +20,26 @@ namespace MailSender.Models
             }
         }
         public string Address { get; set; }
+
+        string IDataErrorInfo.Error => null;
+
+        string IDataErrorInfo.this[string PropertyName]
+        {
+            get
+            {
+                switch (PropertyName)
+                {
+                    default: return null;
+                    case nameof(Name):
+                        var name = Name;
+
+                        if (name is null) return "Имя не может быть пустой ссылкой";
+                        if (name.Length < 3) return "Длина имени должна быть не менее 3 символов";
+                        if (name.Length > 20) return "Длина имени должна быть не более 20 символов";
+
+                        return null;
+                }
+            }
+        }
     }
 }
