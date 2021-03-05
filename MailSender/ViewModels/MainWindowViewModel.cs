@@ -36,6 +36,46 @@ namespace MailSender.ViewModels
 
         #region Команды
 
+        #region SelectedRecipient : Recipient - DESCRIPTION - Выбранный получатель
+
+        /// <summary>Выбранный получатель</summary>
+        private Recipient _SelectedRecipient;
+
+        /// <summary>Выбранный получатель</summary>
+        public Recipient SelectedRecipient { get => _SelectedRecipient; set => Set(ref _SelectedRecipient, value); }
+
+        #endregion
+
+        #region SelectedSender : Sender - DESCRIPTION - Выбранный отправитель
+
+        /// <summary>Выбранный отправитель</summary>
+        private Sender _SelectedSender;
+
+        /// <summary>Выбранный отправитель</summary>
+        public Sender SelectedSender { get => _SelectedSender; set => Set(ref _SelectedSender, value); }
+
+        #endregion
+
+        #region SelectedMessage : Message - DESCRIPTION - Выбранное сообщение
+
+        /// <summary>Выбранное сообщение</summary>
+        private Message _SelectedMessage;
+
+        /// <summary>Выбранное сообщение</summary>
+        public Message SelectedMessage { get => _SelectedMessage; set => Set(ref _SelectedMessage, value); }
+
+        #endregion
+
+        #region SelectedServer : Server - DESCRIPTION - Выбранный сервер
+
+        /// <summary>Выбранный сервер</summary>
+        private Server _SelectedServer;
+
+        /// <summary>Выбранный сервер</summary>
+        public Server SelectedServer { get => _SelectedServer; set => Set(ref _SelectedServer, value); }
+
+        #endregion
+
         private ICommand _LoadServersCommand;
 
         public ICommand LoadDataCommand => _LoadServersCommand
