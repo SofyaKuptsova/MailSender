@@ -29,7 +29,7 @@ namespace MailSender.Infrastructure.Services.InMemory
             return item.Id;
         }
 
-        public abstract void UpDate(T item);
+        public abstract void Update(T item);
 
         public bool Remove(int id) => _Items.RemoveAll(s => s.Id == id) > 0;
     }

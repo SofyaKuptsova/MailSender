@@ -11,7 +11,7 @@ namespace MailSender.Infrastructure.Services
 
         int Add(T item);
 
-        void UpDate(T item);
+        void Update(T item);
 
         bool Remove(int id);
     }

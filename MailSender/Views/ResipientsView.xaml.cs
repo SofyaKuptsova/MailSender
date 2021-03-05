@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -16,11 +19,11 @@ using System.Windows.Shapes;
 namespace MailSender.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ResipientsView.xaml
+    /// Логика взаимодействия для RecipientsView.xaml
     /// </summary>
-    public partial class ResipientsView : UserControl
+    public partial class RecipientsView : UserControl
     {
-        public ResipientsView()
+        public RecipientsView()
         {
             InitializeComponent();
         }

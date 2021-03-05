@@ -30,7 +30,7 @@ namespace MailSender
         {
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<StatisticViewModel>();
-           
+
             services.AddSingleton<IRepository<Server>, ServersRepository>();
             services.AddSingleton<IRepository<Sender>, SendersRepository>();
             services.AddSingleton<IRepository<Recipient>, RecipientsRepository>();

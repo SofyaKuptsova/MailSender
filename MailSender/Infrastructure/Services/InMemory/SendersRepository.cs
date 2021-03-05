@@ -15,7 +15,7 @@ namespace MailSender.Infrastructure.Services.InMemory
         {
         }
 
-        public override void UpDate(Sender item)
+        public override void Update(Sender item)
         {
             var db_item = GetById(item.Id);
             if (db_item is null || ReferenceEquals(db_item, item)) return;

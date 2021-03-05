@@ -18,36 +18,34 @@ namespace MailSender.ViewModels
         private readonly IRepository<Recipient> _Recipients;
         private readonly IRepository<Message> _Messages;
 
+
         private readonly IMailService _MailService;
 
         private string _Title = "Рассыльщик";
 
         public string Title { get => _Title; set => Set(ref _Title, value); }
 
-        private string _Status = "Готово!";
+        private string _Status = "Готов!";
 
         public string Status { get => _Status; set => Set(ref _Status, value); }
 
-        public ObservableCollection<Server> Servers { get; } = new ();
-
+        public ObservableCollection<Server> Servers { get; } = new();
         public ObservableCollection<Recipient> Recipients { get; } = new();
-
         public ObservableCollection<Sender> Senders { get; } = new();
-
         public ObservableCollection<Message> Messages { get; } = new();
 
         #region Команды
 
         private ICommand _LoadServersCommand;
 
-        public ICommand LoadServersCommand => _LoadServersCommand
-            ??= new LambdaCommand(OnLoadServerCommandExecuted, CanLoadServerCommandExecute);
+        public ICommand LoadDataCommand => _LoadServersCommand
+            ??= new LambdaCommand(OnLoadServersCommandExecuted, CanLoadServersCommandExecute);
 
-        private bool CanLoadServerCommandExecute(object p) => Servers.Count == 0;
+        private bool CanLoadServersCommandExecute(object p) => Servers.Count == 0;
 
-        private void OnLoadServerCommandExecuted(object p)
+        private void OnLoadServersCommandExecuted(object p)
         {
-            LoadServers();
+            LoadData();
         }
 
         private ICommand _SendEmailCommand;
@@ -59,9 +57,8 @@ namespace MailSender.ViewModels
 
         private void OnSendEmailCommandExecuted(object p)
         {
-            _MailService.SendEmail("Иванов", "Петров", "Тема", "Тело письма");
+            _MailService.SendEmail("Ивнов", "Петров", "Тема", "Тело письма");
         }
-
 
         #endregion
 
@@ -87,11 +84,11 @@ namespace MailSender.ViewModels
                 collection.Add(item);
         }
 
-        private void LoadServers()
+        private void LoadData()
         {
             Load(Servers, _Servers);
-            Load(Senders, _Senders);
             Load(Recipients, _Recipients);
+            Load(Senders, _Senders);
             Load(Messages, _Messages);
         }
     }

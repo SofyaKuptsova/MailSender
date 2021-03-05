@@ -5,7 +5,7 @@ namespace MailSender.ViewModels
 {
     internal class ViewModelLocator
     {
-        public MainWindowViewModel MainVindowModel
+        public MainWindowViewModel MainWindowModel
         {
             get
             {
