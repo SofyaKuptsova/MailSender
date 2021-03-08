@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MailSender.Infrastructure.Services.InMemory
 {
-    abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
+    public abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
     {
         private readonly List<T> _Items;
         private int _MaxId;
