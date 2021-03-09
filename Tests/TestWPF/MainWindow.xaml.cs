@@ -42,10 +42,9 @@ namespace TestWPF
                     values[3],
                     values[4]
                     ));
-                Thread.Sleep(1);
             }
 
-            Data.ItemSourse = persons;
+            Data.ItemsSource = persons;
         }
     }
 }
