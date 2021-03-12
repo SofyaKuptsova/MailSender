@@ -1,31 +1,24 @@
 ﻿using System;
-using System.Net;
-using System.Net.Mail;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
 
 namespace TestConsole
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
-            var from = new MailAddress("N916-138-9890@yandex.ru", "Софья");
-            var to = new MailAddress("n9161389890@gmail.com", "Софья");
+            //ExcelCreator.Create();
+            //ThreadsTest.Start();
+            //ThreadPoolTest.Start();
+            //CriticalSection.Test();
+            ThreadManagement.Test();
 
-            var message = new MailMessage(from, to);
-            message.Subject = "Заголовок";
-            message.Body = "Текст письма";
-
-            var client = new SmtpClient("smtp.yandex.ru", 465);
-            client.EnableSsl = true;
-
-            client.Credentials = new NetworkCredential
-            {
-                UserName = "UserName",
-                //SecurePassword = ""
-                Password = "Password!"
-            };
-
-            client.Send(message);
+            Console.WriteLine("Главный поток завершил работу!");
+            Console.ReadLine();
         }
     }
 }
