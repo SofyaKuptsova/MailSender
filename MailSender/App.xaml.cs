@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using MailSender.lib.Service;
+using MailSender.lib;
 using MailSender.Infrastructure.Services.InMemory;
 using MailSender.Models;
 
@@ -38,7 +38,11 @@ namespace MailSender
 
 
             services.AddSingleton<IStatistic, InMemoryStatisticService>();
+#if DEBUG
             services.AddSingleton<IMailService, DebugMailService>();
+#else
+            services.AddSingleton<IMailService, SmtpMailService>();
+#endif
         }
     }
 }
