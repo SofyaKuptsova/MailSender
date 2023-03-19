@@ -1,31 +1,19 @@
 ﻿using System;
-using System.Net;
-using System.Net.Mail;
+using System.Threading.Tasks;
+// ReSharper disable AsyncConverter.ConfigureAwaitHighlighting
 
 namespace TestConsole
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            var from = new MailAddress("N916-138-9890@yandex.ru", "Софья");
-            var to = new MailAddress("n9161389890@gmail.com", "Софья");
+            //TPLOverview.Test();
+            //TaskTests.Run();
+            await TaskTests.RunAsync();
 
-            var message = new MailMessage(from, to);
-            message.Subject = "Заголовок";
-            message.Body = "Текст письма";
-
-            var client = new SmtpClient("smtp.yandex.ru", 465);
-            client.EnableSsl = true;
-
-            client.Credentials = new NetworkCredential
-            {
-                UserName = "UserName",
-                //SecurePassword = ""
-                Password = "Password!"
-            };
-
-            client.Send(message);
+            Console.WriteLine("Главный поток завершил работу!");
+            Console.ReadLine();
         }
     }
 }

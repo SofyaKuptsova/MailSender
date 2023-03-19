@@ -10,6 +10,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.12.3" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\MailSender.lib\MailSender.lib.csproj" />
